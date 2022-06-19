@@ -31,7 +31,7 @@ export function shimWeb3(
         if (property === 'currentProvider' && !loggedCurrentProvider) {
           loggedCurrentProvider = true;
           log.warn(
-            'You are accessing the MetaMask window.web3.currentProvider shim. This property is deprecated; use window.ethereum instead. For details, see: https://docs.metamask.io/guide/provider-migration.html#replacing-window-web3',
+            'You are accessing the Dekey window.web3.currentProvider shim. This property is deprecated; use window.ethereum instead.',
           );
         } else if (
           property !== 'currentProvider' &&
@@ -39,20 +39,18 @@ export function shimWeb3(
           !loggedMissingProperty
         ) {
           loggedMissingProperty = true;
-          log.error(
-            `MetaMask no longer injects web3. For details, see: https://docs.metamask.io/guide/provider-migration.html#replacing-window-web3`,
-          );
+          log.error('Dekey no longer injects web3.');
           provider
             .request({ method: 'metamask_logWeb3ShimUsage' })
             .catch((error) => {
-              log.debug('MetaMask: Failed to log web3 shim usage.', error);
+              log.debug('Dekey: Failed to log web3 shim usage.', error);
             });
         }
         return Reflect.get(target, property, ...args);
       },
       set: (...args) => {
         log.warn(
-          'You are accessing the MetaMask window.web3 shim. This object is deprecated; use window.ethereum instead. For details, see: https://docs.metamask.io/guide/provider-migration.html#replacing-window-web3',
+          'You are accessing the Dekey window.web3 shim. This object is deprecated; use window.ethereum instead.',
         );
         return Reflect.set(...args);
       },

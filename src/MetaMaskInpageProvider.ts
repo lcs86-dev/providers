@@ -50,7 +50,7 @@ interface SentWarningsState {
 /**
  * The name of the stream consumed by {@link MetaMaskInpageProvider}.
  */
-export const MetaMaskInpageProviderStreamName = 'metamask-provider';
+export const MetaMaskInpageProviderStreamName = 'dekey-provider';
 
 export class MetaMaskInpageProvider extends AbstractStreamProvider {
   protected _sentWarnings: SentWarningsState = {

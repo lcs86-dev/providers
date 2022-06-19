@@ -67,7 +67,7 @@ export abstract class AbstractStreamProvider extends BaseProvider {
       connectionStream,
       mux as unknown as Duplex,
       connectionStream,
-      this._handleStreamDisconnect.bind(this, 'MetaMask'),
+      this._handleStreamDisconnect.bind(this, 'Dekey'),
     );
 
     // Set up RPC connection
@@ -76,7 +76,7 @@ export abstract class AbstractStreamProvider extends BaseProvider {
       this._jsonRpcConnection.stream,
       mux.createStream(jsonRpcStreamName) as unknown as Duplex,
       this._jsonRpcConnection.stream,
-      this._handleStreamDisconnect.bind(this, 'MetaMask RpcProvider'),
+      this._handleStreamDisconnect.bind(this, 'Dekey RpcProvider'),
     );
 
     // Wire up the JsonRpcEngine to the JSON-RPC connection stream
@@ -124,7 +124,7 @@ export abstract class AbstractStreamProvider extends BaseProvider {
       })) as Parameters<BaseProvider['_initializeState']>[0];
     } catch (error) {
       this._log.error(
-        'MetaMask: Failed to get initial state. Please report this bug.',
+        'Dekey: Failed to get initial state. Please report this bug.',
         error,
       );
     }
@@ -138,7 +138,7 @@ export abstract class AbstractStreamProvider extends BaseProvider {
    * @emits BaseProvider#disconnect
    */
   private _handleStreamDisconnect(streamName: string, error: Error) {
-    let warningMsg = `MetaMask: Lost connection to "${streamName}".`;
+    let warningMsg = `Dekey: Lost connection to "${streamName}".`;
     if (error?.stack) {
       warningMsg += `\n${error.stack}`;
     }
