@@ -1,6 +1,6 @@
 {
-  "name": "@metamask/providers",
-  "version": "9.0.0",
+  "name": "@skilm/providers",
+  "version": "0.0.1",
   "description": "A JavaScript Ethereum provider that connects to the wallet over a stream.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,21 +22,11 @@
     "lint:fix": "yarn lint:eslint --fix && yarn lint:misc --write",
     "prepublishOnly": "yarn build && yarn lint && yarn test"
   },
-  "author": "MetaMask",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/providers.git"
+    "url": "https://github.com/lcs86-dev/providers.git"
   },
-  "keywords": [
-    "MetaMask",
-    "Ethereum",
-    "Provider"
-  ],
-  "bugs": {
-    "url": "https://github.com/MetaMask/providers/issues"
-  },
-  "homepage": "https://github.com/MetaMask/providers#readme",
   "files": [
     "dist/"
   ],
